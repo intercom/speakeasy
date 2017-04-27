@@ -1,0 +1,36 @@
+general:
+  build_dir: sample/android
+
+machine:
+  java:
+    version: openjdk8
+  environment:
+    ANDROID_NDK: $HOME/android-ndk-r14b
+    ANDROID_NDK_HOME: $ANDROID_NDK
+    PATH: $PATH:$ANDROID_NDK:$HOME/.go_project/bin
+
+dependencies:
+  override:
+    - if [ ! -e $ANDROID_HOME/build-tools/25.0.2 ]; then echo y | android update sdk --no-ui --all --filter build-tools-25.0.2; fi
+    - if [ ! -e $ANDROID_HOME/platforms/android-25 ]; then echo y | android update sdk --no-ui --all --filter android-25; fi
+    - if [ ! -e $ANDROID_HOME/extras/android/m2repository/com/android/support/design/25.3.1 ]; then echo y | android update sdk --no-ui --all --filter extra-android-m2repository; fi
+    - if [ ! -e ~/android-ndk-r14b ]; then wget http://dl.google.com/android/repository/android-ndk-r14b-linux-x86_64.zip && unzip -d ~ android-ndk-r14b-linux-x86_64.zip; fi
+    - mkdir -p $HOME/.go_project/src/github.com/$CIRCLE_PROJECT_USERNAME
+    - ln -fs $HOME/$CIRCLE_PROJECT_REPONAME $HOME/.go_project/src/github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
+    - |
+      echo 'export GOPATH=$GOPATH:$HOME/.go_project' >> ~/.circlerc
+    - cd $HOME/.go_project/src/github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME && ./setup.sh
+    - ./gradlew dependencies
+
+  cache_directories:
+    # Android SDK
+    - "/usr/local/android-sdk-linux/platforms/android-25"
+    - "/usr/local/android-sdk-linux/extras/android/m2repository"
+    - ~/android-ndk-r14b
+
+test:
+  override:
+    - cd ../backend && ./encode-assets.sh
+    - go get -v github.com/intercom/speakeasy/cmd/speakeasy
+    - cd ../backend && speakeasy build github.com/intercom/speakeasy/sample/backend
+    - ./gradlew build

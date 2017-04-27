@@ -1,3 +1,5 @@
+# Standard Go ignores
+
 # Compiled Object files, Static and Dynamic libs (Shared Objects)
 *.o
 *.a
@@ -22,3 +24,21 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+# Project ignores
+output
+go/pkg
+go/bin
+.idea
+
+# OSX files
+.DS_Store
+
+bin/
+speakeasy-binaries/
+
+# Encoded assets are generated at build time by build.sh
+server/encoded_assets.go
+.encoded_assets.sha1
+encoded_assets.go
+bindata.go
