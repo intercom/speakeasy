@@ -82,7 +82,10 @@ func DefaultAppState() *AppState {
 		Channels: make(map[string]*Channel, 0),
 		Users:    make(map[string]*User, 0),
 	}
-	bot := &User{Name: "SpeakeasyBot"}
+	bot := &User{
+		Name: "SpeakeasyBot",
+		ImageUrl: GetAsset("assets/avatars/justice.png").Url(),
+	}
 	state.PutUser(bot)
 
 	general := &Channel{Name: "#general", Messages: []*Message{}}

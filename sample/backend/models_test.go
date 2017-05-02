@@ -7,10 +7,10 @@ import (
 )
 
 func TestDefaultChannels(t *testing.T) {
-	server := NewServer()
+	engine := NewEngine()
 
 	output, err := json.MarshalIndent(&ChannelsResponse{
-		Channels: server.AppState.ChannelNameList(),
+		Channels: engine.AppState.ChannelNameList(),
 	}, "", "    ")
 	if err != nil {
 		fmt.Println(err)
@@ -29,10 +29,10 @@ func TestDefaultChannels(t *testing.T) {
 }
 
 func TestDefaultUsers(t *testing.T) {
-	server := NewServer()
+	engine := NewEngine()
 
-	channel := server.AppState.Channels["#general"]
-	output, err := json.MarshalIndent(channel.UserList(server.AppState), "", "    ")
+	channel := engine.AppState.Channels["#general"]
+	output, err := json.MarshalIndent(channel.UserList(engine.AppState), "", "    ")
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -41,7 +41,7 @@ func TestDefaultUsers(t *testing.T) {
 	expected := `[
     {
         "name": "SpeakeasyBot",
-        "image_url": ""
+        "image_url": "http://localhost:3000/assets/assets/avatars/justice.png"
     }
 ]`
 	if expected != string(output) {
