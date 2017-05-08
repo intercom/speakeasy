@@ -1,3 +1,4 @@
+![Intercom](sample/Intercom_logo-github.png)
 # Speakeasy
 A tool for creating web servers that you can embed in iOS or Android apps.
 
@@ -10,7 +11,7 @@ A tool for creating web servers that you can embed in iOS or Android apps.
     $GOPATH/src/github.com/intercom/speakeasy/setup.sh
     ```
 
-### Sample Engine 
+### Sample Engine
 * From the `sample/backend` directory run the following commands:
 
     ```bash
