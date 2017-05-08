@@ -1,7 +1,9 @@
 ![Intercom](sample/Intercom_logo-github.png)
 
-[![CircleCI](https://circleci.com/gh/intercom/speakeasy.svg?style=svg)](https://circleci.com/gh/intercom/speakeasy)
+
+[![Go Report Card](https://goreportcard.com/badge/github.com/intercom/speakeasy)](https://goreportcard.com/report/github.com/intercom/speakeasy)
 [![Apache License](http://img.shields.io/badge/license-APACHE2-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)
+[![CircleCI](https://circleci.com/gh/intercom/speakeasy.svg?style=svg)](https://circleci.com/gh/intercom/speakeasy)
 # Speakeasy
 A tool for creating web servers that you can embed in iOS or Android apps.
 
