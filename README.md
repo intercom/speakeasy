@@ -1,4 +1,5 @@
 ![Intercom](sample/Intercom_logo-github.png)
+
 [![CircleCI](https://circleci.com/gh/intercom/speakeasy.svg?style=svg)](https://circleci.com/gh/intercom/speakeasy)
 # Speakeasy
 A tool for creating web servers that you can embed in iOS or Android apps.
