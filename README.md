@@ -1,3 +1,10 @@
+![Intercom](sample/Intercom_logo-github.png)
+
+
+[![Go Report Card](https://goreportcard.com/badge/github.com/intercom/speakeasy)](https://goreportcard.com/report/github.com/intercom/speakeasy)
+[![Apache License](http://img.shields.io/badge/license-APACHE2-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)
+[![CircleCI](https://circleci.com/gh/intercom/speakeasy.svg?style=svg)](https://circleci.com/gh/intercom/speakeasy)
+
 # Speakeasy
 A tool for creating web servers that you can embed in iOS or Android apps.
 
@@ -10,7 +17,7 @@ A tool for creating web servers that you can embed in iOS or Android apps.
     $GOPATH/src/github.com/intercom/speakeasy/setup.sh
     ```
 
-### Sample Engine 
+### Sample Engine
 * From the `sample/backend` directory run the following commands:
 
     ```bash
@@ -25,3 +32,7 @@ A tool for creating web servers that you can embed in iOS or Android apps.
 ### About
 
 This sample uses [Twemoji](https://github.com/twitter/twemoji) images.
+
+### License
+
+Speakeasy is released under the Apache 2.0 license. See LICENSE for details.
