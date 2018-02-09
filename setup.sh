@@ -6,7 +6,7 @@ while :;do printf .;sleep 1;done &
 trap "kill $!" EXIT
 
 echo "\nGetting packages"
-go get -u github.com/gorilla/mux github.com/nu7hatch/gouuid github.com/jteeuwen/go-bindata/... golang.org/x/mobile/cmd/gomobile
+go get -u github.com/gorilla/mux github.com/nu7hatch/gouuid github.com/kevinburke/go-bindata/... golang.org/x/mobile/cmd/gomobile
 echo "\ngomobile init 📱"
 type gomobile > /dev/null || { echo "Couldn't find gomobile, is \$GOPATH/bin on your \$PATH?" ; exit 1; }
 if [ -n "$ANDROID_NDK" ]; then
