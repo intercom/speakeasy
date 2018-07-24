@@ -90,7 +90,7 @@ func buildAndroidFramework(packageName string, outputName string) {
 	androidCmd := exec.Command("gomobile",
 		"bind",
 		"-target=android/arm,android/386",
-		`-ldflags="-s"`,
+		`-ldflags=-s`,
 		"-o", fmt.Sprintf("output/android/%v.aar", outputName),
 		packageName,
 		speakeasyPackage)
@@ -108,7 +108,7 @@ func buildAppleFramework(packageName string, outputName string) {
 		iosCmd := exec.Command("gomobile",
 			"bind",
 			"-target=ios",
-			`-ldflags="-s"`,
+			`-ldflags=-s`,
 			"-o", fmt.Sprintf("output/ios/%v.framework", capitalisedName),
 			packageName,
 			speakeasyPackage)
